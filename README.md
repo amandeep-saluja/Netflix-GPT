@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Firebase Integration
+
+### Steps for Deployment
+
+1. Install firebase CLI - `npm i -g firebase-tools`
+2. Login to firebase - `firebase login`
+3. Initialize firebase - `firebase init`, then select Hosting
+4. Deploy command - `npm run build && firebase deploy`
