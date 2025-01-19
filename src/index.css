@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* For Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+    height: 8px; /* Scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+    background: #333; /* Track color (dark gray for a black background) */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4CAF50; /* Scrollbar thumb color (green for contrast) */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #45a049; /* Thumb color on hover (slightly darker green) */
+}
+
+/* Optional: Hide the default scrollbar */
+::-webkit-scrollbar {
+    display: block;
+}
