@@ -19,10 +19,11 @@ export const API_OPTIONS = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjQwZjI2OTYxODhmOTg4ZWQxODhlOWZjZjhmM2Y5MSIsIm5iZiI6MTczNzE5MzAwMy4yOTQwMDAxLCJzdWIiOiI2NzhiNzYyYjY4ZTBkODczNjM2ZGNmOWIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dPfCGWDFvTvWRFJbtabDwii_ABaHisYrOnVLWh_1WYo',
+        Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_KEY,
     },
 };
+
+export const GOOGLE_AI_API_KEY = process.env.REACT_APP_GOOGLE_AI_API_KEY;
 
 export const GET_VIDEO_ID = (movieId) =>
     `https://api.themoviedb.org/3/movie/${movieId}/videos`;
@@ -37,3 +38,21 @@ export const GET_TOP_RATED_MOVIES =
     'https://api.themoviedb.org/3/movie/top_rated?page=1';
 export const GET_UPCOMING_MOVIES =
     'https://api.themoviedb.org/3/movie/upcoming?page=1';
+
+export const SUPPORTED_LANGUAGES = [
+    {
+        identifier: 'en',
+        name: 'English',
+    },
+    {
+        identifier: 'hi',
+        name: 'Hindi',
+    },
+    {
+        identifier: 'es',
+        name: 'Spanish',
+    },
+];
+
+export const SEARCH_MOVIE_URL = (movie) =>
+    `https://api.themoviedb.org/3/search/movie?query=${movie}&page=1`;

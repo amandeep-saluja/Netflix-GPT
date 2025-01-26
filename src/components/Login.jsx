@@ -7,9 +7,10 @@ import {
     updateProfile,
 } from 'firebase/auth';
 import { auth } from '../utils/firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { AVATAR, BACKGROUND_IMG } from '../utils/constants';
+import lang from '../utils/languageConstants';
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,6 +18,7 @@ const Login = () => {
     const password = useRef(null);
     const fullName = useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    const langKey = useSelector((store) => store.config.lang);
     const dispatch = useDispatch();
     const isSignInFormForm = () => {
         setIsSignInForm(!isSignInForm);
@@ -76,26 +78,26 @@ const Login = () => {
                 onSubmit={(e) => e.preventDefault()}
             >
                 <div className="login-label py-4 text-3xl">
-                    {isSignInForm ? 'Sign In' : 'Sign Up'}{' '}
+                    {isSignInForm ? lang[langKey].signIn : lang[langKey].signUp}{' '}
                 </div>
                 {!isSignInForm && (
                     <input
                         ref={fullName}
                         type="text"
-                        placeholder="Full name"
+                        placeholder={lang[langKey].fullNamePlaceholder}
                         className="w-full p-4 my-4 bg-gray-900"
                     />
                 )}
                 <input
                     ref={email}
                     type="email"
-                    placeholder="Email"
+                    placeholder={lang[langKey].emailPlaceholder}
                     className="w-full p-4 my-4 bg-gray-900"
                 />
                 <input
                     ref={password}
                     type="password"
-                    placeholder="Password"
+                    placeholder={lang[langKey].passwordPlaceholder}
                     className="w-full p-4 my-4 bg-gray-900"
                 />
                 {errorMessage !== null && (
@@ -108,41 +110,40 @@ const Login = () => {
                     className="w-full p-4 my-6 bg-red-700 rounded-lg"
                     onClick={() => handleButtonClick()}
                 >
-                    {isSignInForm ? 'Sign In' : 'Sign Up'}
+                    {isSignInForm ? lang[langKey].signIn : lang[langKey].signUp}{' '}
                 </button>
                 {isSignInForm ? (
                     <>
                         <div className="login-additional py-2 m-2 text-white flex flex-row">
                             <input type="checkbox" className="mr-2" />
-                            <span>Remember me</span>
+                            <span>{lang[langKey].rememberMe}</span>
                         </div>
                         <div className="sign-up-block py-2 m-2">
                             <div className="sign-up text-lg flex flex-row">
-                                <span>New to Netflix?</span>
+                                <span>{lang[langKey].newToNetflix}</span>
                                 <button
                                     className="pl-2 font-bold"
                                     onClick={() => isSignInFormForm()}
                                 >
-                                    Sign up Now
+                                    {lang[langKey].signUpNow}
                                 </button>
                             </div>
                             <div className="disclaimer text-xs mt-6">
-                                This page is protected by Google reCAPTCHA to
-                                ensure you're not a bot.{' '}
+                                {lang[langKey].disclaimer + ' '}
                                 <span className="text-blue-400 cursor-pointer">
-                                    Learn more.
+                                    {lang[langKey].learnMore}
                                 </span>
                             </div>
                         </div>
                     </>
                 ) : (
                     <div className="flex flex-row">
-                        <div>Already a member?</div>
+                        <div>{lang[langKey].alreadyAMember}</div>
                         <button
                             className="pl-2 font-bold"
                             onClick={() => isSignInFormForm()}
                         >
-                            Sign In
+                            {lang[langKey].signIn}
                         </button>
                     </div>
                 )}
