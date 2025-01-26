@@ -71,10 +71,14 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute netflix-logo">
-                <img src={BACKGROUND_IMG} alt="Background" />
+                <img
+                    src={BACKGROUND_IMG}
+                    alt="Background"
+                    className="h-screen object-cover md:h-full"
+                />
             </div>
             <form
-                className="login-form p-12 bg-black absolute w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
+                className="login-form p-12 bg-black absolute w-full md:w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
                 onSubmit={(e) => e.preventDefault()}
             >
                 <div className="login-label py-4 text-3xl">

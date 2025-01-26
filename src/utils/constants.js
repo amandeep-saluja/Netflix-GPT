@@ -10,11 +10,6 @@ export const AVATAR = (name) =>
 export const BACKGROUND_IMG =
     'https://assets.nflxext.com/ffe/siteui/vlv3/aa9edac4-a0e6-4f12-896e-32c518daec62/web/IN-en-20241223-TRIFECTA-perspective_1502c512-be5f-4f14-b21a-e3d75fe159ab_large.jpg';
 
-export const API_KEY = '3640f2696188f988ed188e9fcf8f3f91';
-
-export const ACCESS_TOKEN =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjQwZjI2OTYxODhmOTg4ZWQxODhlOWZjZjhmM2Y5MSIsIm5iZiI6MTczNzE5MzAwMy4yOTQwMDAxLCJzdWIiOiI2NzhiNzYyYjY4ZTBkODczNjM2ZGNmOWIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dPfCGWDFvTvWRFJbtabDwii_ABaHisYrOnVLWh_1WYo';
-
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
